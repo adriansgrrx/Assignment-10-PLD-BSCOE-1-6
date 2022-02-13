@@ -16,6 +16,10 @@
 
 import cv2
 from pyzbar import pyzbar
+from datetime import datetime
+
+# Global variable for an empty text file where the encoding takes place
+txtfile = "Contact Tracing Info.txt"
 
 def readQRCode(frame):
     QRcode = pyzbar.decode(frame)
@@ -27,9 +31,13 @@ def readQRCode(frame):
         # Costumizing the display font and its positioning
         font = cv2.FONT_HERSHEY_SIMPLEX
         cv2.putText(frame, QRtxt, (x + 10, y - 10), font, 1.0, (255, 255, 255), 2)
+        # datetime object containing current date and time
+        today = datetime.now()              
+        cTime = today.strftime("%H:%M")        # HH/MM
+        cDate = today.strftime("%B %d, %Y")    # mm/dd/YY
         # Reading text file and writing the scanned text to it.
-        with open("Contact Tracing Info.txt", 'w') as file:
-            file.write(QRtxt)
+        with open(txtfile, 'w') as file:
+            file.write( QRtxt + (f"\n\nDate of Registration: {cDate}\nTime of Registration: {cTime}"))
     return frame
 
 def execute():

@@ -18,9 +18,12 @@ import cv2
 from pyzbar import pyzbar
 from datetime import datetime
 
-# Global variable for an empty text file where the encoding takes place
+# Global variable for a text file where the encoding takes place
 txtfile = "Contact Tracing Info.txt"
 
+"""
+pyzbar module section together with cv objects
+"""
 def readQRCode(frame):
     QRcode = pyzbar.decode(frame)
     for codes in QRcode:
@@ -39,7 +42,9 @@ def readQRCode(frame):
         with open(txtfile, 'w') as file:
             file.write( QRtxt + (f"\n\nDate of Registration: {cDate}\nTime of Registration: {cTime}"))
     return frame
-
+"""
+Main opencv module section
+"""
 def execute():
     # Turning on the camera of the computer using OpenCV
     camera = cv2.VideoCapture(0) # I use 1 value for my camera to function

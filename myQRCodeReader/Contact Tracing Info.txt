@@ -1,0 +1,24 @@
+COVID-19 CONTACT TRACING INFO.
+
+Full-Name: Adrian Remoquillo Esguerra 
+Address: Sherlock Holmes - 221B Baker St., London
+Sex: Male						
+Age: 18 years old
+Contact Number: 0912-345-6789
+Date of Birth: February 14, 2003
+
+Has any severe symptoms?
+> None
+
+Are you fully vaccinated?	
+> Yes	
+
+Last place you've been:
+> Natural History Museum
+
+Last 2 people you were with:
+> Tom Holland
+> Robert Downey Jr.
+
+Date of Registration: February 14, 2022
+Time of Registration: 00:35

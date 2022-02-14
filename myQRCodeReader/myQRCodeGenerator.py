@@ -32,5 +32,5 @@ Last 5 people you were with:
 # Generate QR code
 QR = pyqrcode.create(myData)
   
-# Create and save the png file 
+# Create and save into png file 
 QR.png("myQRCode.png", 6)

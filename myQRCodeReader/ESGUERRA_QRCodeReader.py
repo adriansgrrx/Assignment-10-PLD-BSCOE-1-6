@@ -1,5 +1,4 @@
 # Assignment 10
-
 # Contact Tracing App
 # 	- Create a python program that will read QRCode using your webcam
 # 	- You may use any online QRCode generator to create QRCode
@@ -28,7 +27,7 @@ def readQRCode(frame):
     QRcode = pyzbar.decode(frame)
     for codes in QRcode:
         x, y , w, h = codes.rect
-        # COstumizing the live scanner with its specific color, size and thickness
+        # Costumizing the live scanner with its specific color, size and thickness
         QRtxt = codes.data.decode("utf-8")
         cv2.rectangle(frame, (x, y),(x+w, y+h), (0, 255, 0), 3)
         # Costumizing the display font and its positioning

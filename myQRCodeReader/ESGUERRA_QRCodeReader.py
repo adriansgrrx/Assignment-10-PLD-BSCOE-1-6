@@ -18,7 +18,7 @@ import cv2
 from pyzbar import pyzbar
 from datetime import datetime
 
-# Global variable for a text file where the encoding takes place
+# Global variable for an empty text file where the encoding takes place
 txtfile = "Contact Tracing Info.txt"
 
 """
@@ -29,17 +29,17 @@ def readQRCode(frame):
     for codes in QRcode:
         x, y , w, h = codes.rect
         # COstumizing the live scanner with its specific color, size and thickness
-        QRtxt = codes.data.decode('utf-8')
+        QRtxt = codes.data.decode("utf-8")
         cv2.rectangle(frame, (x, y),(x+w, y+h), (0, 255, 0), 3)
         # Costumizing the display font and its positioning
         font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(frame, QRtxt, (x + 10, y - 10), font, 1.0, (255, 255, 255), 2)
+        cv2.putText(frame, "COVID-19 CONTACT TRACING INFORMATION", (x - 65, y - 20), font, 1.0, (255, 255, 255), 2)
         # datetime object containing current date and time
         today = datetime.now()              
         cTime = today.strftime("%H:%M")        # HH/MM
         cDate = today.strftime("%B %d, %Y")    # mm/dd/YY
         # Reading text file and writing the scanned text to it.
-        with open(txtfile, 'w') as file:
+        with open(txtfile, "w") as file:
             file.write( QRtxt + (f"\n\nDate of Registration: {cDate}\nTime of Registration: {cTime}"))
     return frame
 """
@@ -47,7 +47,7 @@ Main opencv module section
 """
 def execute():
     # Turning on the camera of the computer using OpenCV
-    camera = cv2.VideoCapture(0) # I use 1 value for my camera to function
+    camera = cv2.VideoCapture(0) # I use 0 value for my camera to function
     ret, frame = camera.read()
     while ret:
         ret, frame = camera.read()
